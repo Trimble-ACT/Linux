@@ -396,9 +396,9 @@ if [ "$INT_WIFI" != "" ]; then
 fi
 
 
-if [ -f "/etc/gdm3/custom.conf" -a "`grep '^#WaylandEnable=false' /etc/gdm3/custom.conf`" != "" ]; then
-	sed -i 's/^#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
-fi
+#if [ -f "/etc/gdm3/custom.conf" -a "`grep '^WaylandEnable=false' /etc/gdm3/custom.conf`" != "" ]; then
+#	sed -i 's/^#WaylandEnable=false/WaylandEnable=false/g' /etc/gdm3/custom.conf
+#fi
 
 #nslookup to test we're on the internal network
 DD=`nslookup $PRIMARY_AD_REALM 2>/dev/null|grep ^Name|grep -i $PRIMARY_AD_REALM`
@@ -484,13 +484,13 @@ if [ "$OS_VENDOR" == "Ubuntu" ]; then
 	apt -y install openssh-server > /dev/null 2>&1
 	(apt -y install fping at curl wget libnss3-tools network-manager-openconnect-gnome samba ubuntu-desktop network-manager-openvpn-gnome openvpn openvpn-systemd-resolved pwgen firefox dnsutils dmidecode ldap-utils unattended-upgrades samba-common-bin wireless-tools $vmtools ; apt -y install fping at curl wget libnss3-tools network-manager-openconnect-gnome samba network-manager-openvpn-gnome openvpn openvpn-systemd-resolved pwgen firefox dnsutils dmidecode ldap-utils unattended-upgrades samba-common-bin wireless-tools $vmtools ) > apt-install.err 2>&1&
 
-	if [ "`dmidecode 2>/dev/null|grep -i nvidia`" != "" ]; then 
-		#add testing support to get NVidia drivers
-        	add-apt-repository -y ppa:graphics-drivers/ppa > /dev/null 2>&1
-        	apt update  > /dev/null 2>&1
-        	apt -y install nvidia-driver-390 > /dev/null 2>&1
-        	apt -y install nvidia-driver-430 > /dev/null 2>&1
-	fi
+#	if [ "`dmidecode 2>/dev/null|grep -i nvidia`" != "" ]; then 
+	#add testing support to get NVidia drivers
+#	       	add-apt-repository -y ppa:graphics-drivers/ppa > /dev/null 2>&1
+#        	apt update  > /dev/null 2>&1
+#        	apt -y install nvidia-driver-390 > /dev/null 2>&1
+#        	apt -y install nvidia-driver-430 > /dev/null 2>&1
+#	fi
 
 	systemctl stop packagekit  > /dev/null 2>&1
 	spinner apt-install.err
