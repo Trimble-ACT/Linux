@@ -49,7 +49,7 @@ sudo apt update
 # Install Intune management extension agent
 sudo apt install -y mdatp intune-portal microsoft-edge-stable
 
-Sudo apt update && sudo apt upgrade -y
+sudo apt update && sudo apt upgrade -y
 sudo mv /opt/trimbleify-linux-workstation.sh /tmp/trimbleify-linux-workstation.sh
 
 read -s -n 1 -p "The Trimbleify script was downloaded to your /tmp folder. Press any key to close this script. Browse to your /tmp folder open a terminal and run the command (sudo bash trimbleify-linux-workstation.sh"
