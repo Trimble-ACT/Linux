@@ -51,3 +51,4 @@ sudo apt install -y mdatp intune-portal microsoft-edge-stable
 
 sudo apt update && sudo apt upgrade -y
 sudo mv /opt/trimbleify-linux-workstation.sh /tmp/trimbleify-linux-workstation.sh
+sudo apt update && sudo apt upgrade -y --allow downgrade
