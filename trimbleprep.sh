@@ -30,7 +30,7 @@ sudo apt install firefox
 
 # Install Intune
 # Install dependencies
-sudo apt update
+sudo apt update && sudo apt upgrade -y --allow-downgrades
 sudo apt install -y apt-transport-https curl gpg
 
 # Download and install the signing key
@@ -44,11 +44,23 @@ echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" | 
 sudo rm microsoft.gpg
 
 # Update package list
-sudo apt update
+sudo apt update && sudo apt upgrade -y --allow-downgrades
 
 # Install Intune management extension agent
 sudo apt install -y mdatp intune-portal microsoft-edge-stable
 
-sudo apt update && sudo apt upgrade -y
 sudo mv /opt/trimbleify-linux-workstation.sh /tmp/trimbleify-linux-workstation.sh
-sudo apt update && sudo apt upgrade -y --allow downgrade
+# Function to delete the script file
+delete_script() {
+  script_path=$(readlink -f "$0")
+  rm "$script_path"
+  echo "Script deleted."
+}
+
+# Set a trap to call delete_script function upon normal exit or error
+trap delete_script EXIT
+
+# Your script's logic goes here
+echo "Sleeping a bit"
+sleep 5
+echo "Script execution completed successfully."
