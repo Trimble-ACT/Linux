@@ -83,5 +83,5 @@ d-i apt-mirror-setup	apt-setup/non-free  	boolean true
 
 d-i passwd/user-fullname string IS Support
 d-i passwd/username string helpdesk_local
-d-i passwd/user-password password Tr1mbl3@
-d-i passwd/user-password-again password Tr1mbl3@
+d-i passwd/user-password password XXXXXX
+d-i passwd/user-password-again password XXXXXX
