@@ -1,8 +1,5 @@
 #! /usr/bin/env bash
 
-# curl
-sudo apt install -y apt-transport-https curl gpg
-
 # change keyboard & locales
 
 sudo dpkg-reconfigure keyboard-configuration && sudo dpkg-reconfigure locales && sudo dpkg-reconfigure tzdata
