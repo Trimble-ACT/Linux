@@ -1,5 +1,6 @@
 #! /usr/bin/env bash
-
+# curl
+sudo apt install curl -y
 # NFS - i feel the need the need for speed :)
 # Backup the original sources.list file
 sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
