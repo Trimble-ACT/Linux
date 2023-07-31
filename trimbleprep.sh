@@ -1,5 +1,21 @@
 #! /usr/bin/env bash
 
+# NFS - i feel the need the need for speed :)
+# Backup the original sources.list file
+sudo cp /etc/apt/sources.list /etc/apt/sources.list.backup
+
+# Fetch a list of mirrors and test their speed to find the fastest one
+fastest_mirror=$(curl -sS -D - http://mirrors.ubuntu.com/mirrors.txt | grep -v "^#" | awk '{print $2}' | while read mirror; do echo "$(curl -o /dev/null -sS -w "%{speed_download}\n" $mirror/dists/$(lsb_release -cs)/InRelease -m 5) $mirror"; done | sort -rn | head -1 | awk '{print $2}')
+
+# Update the sources.list file with the fastest mirror
+echo "Updating sources.list with the fastest mirror: $fastest_mirror"
+sudo sed -i "s@http://[^/]*/ubuntu/@$fastest_mirror/ubuntu/@g" /etc/apt/sources.list
+
+# Update the package lists with the new mirror
+sudo apt update
+
+echo "Mirror update completed!"
+
 # change keyboard & locales
 
 sudo dpkg-reconfigure keyboard-configuration && sudo dpkg-reconfigure locales && sudo dpkg-reconfigure tzdata
