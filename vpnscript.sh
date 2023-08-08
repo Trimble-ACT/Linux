@@ -12,8 +12,8 @@ echo Thanks!
 
 # Install FortiNet client
 
-sudo dpkg -i /opt/forticlient_7.0.7.0246_amd64.deb
-sudo apt install -f
+# #sudo dpkg -i /opt/forticlient_7.0.7.0246_amd64.deb
+# #sudo apt install -f
 
 # FortiCliet old way with issues
 
@@ -30,5 +30,5 @@ sudo apt install -f
 
 # configure forticlient
 
-/opt/forticlient/epctrl -r usdayt-ems01.trimble.com -p 8013
+# #/opt/forticlient/epctrl -r usdayt-ems01.trimble.com -p 8013
 # end
