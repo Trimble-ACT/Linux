@@ -9,5 +9,3 @@ sudo apt install forticlient
 
 # configure forticlient
 /opt/forticlient/epctrl -r usdayt-ems01.trimble.com -p 8013
-
-end
