@@ -2,7 +2,7 @@
 
 # Getting Trimble Scripts
 
-wget -O trimbleify-linux-workstation.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleify-linux-workstation.sh && wget -O https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleprep20.sh
+wget -O trimbleify-linux-workstation.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleify-linux-workstation.sh && wget -O trimbleprep.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleprep20.sh
 
 sh /opt/trimbleprep.sh
 
