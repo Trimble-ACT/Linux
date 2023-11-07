@@ -9,3 +9,18 @@ sudo apt install forticlient
 
 # configure forticlient
 /opt/forticlient/epctrl -r usdayt-ems01.trimble.com -p 8013
+
+# Function to delete the script file
+delete_script() {
+  script_path=$(readlink -f "$0")
+  rm "$script_path"
+  echo "Script deleted."
+}
+
+# Set a trap to call delete_script function upon normal exit or error
+trap delete_script EXIT
+
+# Your script's logic goes here
+echo "Sleeping a bit"
+sleep 5
+echo "Script execution completed successfully."
