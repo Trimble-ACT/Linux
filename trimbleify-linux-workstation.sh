@@ -108,7 +108,24 @@ Serial Number/ServiceTag: $SERIAL_NUMBER
 
 EOF
 
-
+#SecureBoot for Linux test
+if [ "`uname -s|grep Linux`" != "" ]; then
+        mC=`mokutil --sb-state 2>/dev/null|egrep -E 'SecureBoot (enabled|disabled)'|egrep -m 1 -o -E '(enabled|disabled)'`
+        if [ "$mC" != "" ]; then
+                secureBoot="$mC"
+        fi
+        if [ "$secureBoot" = "enabled" -a `cat /proc/keys 2>/dev/null| grep -c crowdstrike` -gt 0 ]; then
+                secureBoot="enabled-and-working"
+        fi
+        if [ "$secureBoot" = "enabled" ]; then
+                echo ""
+                echo "Fatal error: SecureBoot under Linux is not currently supported. Please read the SecureBoot comments in:"
+                echo ""
+                echo "https://cis-infosec.trimble.com/wiki/index.php/CrowdStrike_Falcon"
+                echo ""
+                exit 99
+        fi
+fi
 
 if [ "`echo $1|grep '\-h'`" != "" ]; then
 	cat<<EOF
