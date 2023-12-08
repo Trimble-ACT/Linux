@@ -1,4 +1,4 @@
-#!/bin/bash -i
+#!/bin/bash -e
 # Run this script without any arguments for a dry run
 # Run the script with root and with exec arguments for removing old kernels and modules after checking
 # the list printed in the dry run
