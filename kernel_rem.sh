@@ -29,8 +29,8 @@ echo "Old Modules to be removed:"
 echo "$OLD_MODULES"
 
 if [ "$1" == "exec" ]; then
-  sudo apt-get purge $OLD_KERNELS
+  apt-get purge $OLD_KERNELS
   for module in $OLD_MODULES ; do
-    sudo rm -rf /lib/modules/$module/
+    rm -rf /lib/modules/$module/
   done
 fi
