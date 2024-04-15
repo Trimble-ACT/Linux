@@ -1,5 +1,6 @@
 #cloud-config
 autoinstall:
+  version: 1
   apt:
     disable_components: []
     fallback: abort
