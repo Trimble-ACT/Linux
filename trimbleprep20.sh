@@ -33,22 +33,6 @@ sudo apt install firefox
 sudo apt update && sudo apt upgrade -y --allow-downgrades
 sudo apt install -y apt-transport-https curl gpg
 
-# Download and install the signing key
-curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo install -o root -g root -m 644 microsoft.gpg /usr/share/keyrings/
-
-# Add the Intune repository
-echo "deb [arch=amd64 signed-by=/etc/apt/trusted.gpg.d/microsoft.gpg] https://packages.microsoft.com/ubuntu/20.04/prod focal main" | sudo tee /etc/apt/sources.list.d/microsoft-ubuntu-focal-prod.list
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/edge stable main" | sudo tee -a /etc/apt/sources.list.d/microsoft-edge.list
-
-sudo rm microsoft.gpg
-
-# Update package list
-sudo apt update && sudo apt upgrade -y --allow-downgrades
-
-# Install Intune management extension agent
-sudo apt install -y mdatp intune-portal microsoft-edge-stable
-
 sudo mv /opt/trimbleify-linux-workstation.sh /tmp/trimbleify-linux-workstation.sh
 # Function to delete the script file
 delete_script() {
