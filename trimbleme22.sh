@@ -2,9 +2,7 @@
 
 # Getting Trimble Scripts
 
-wget -O trimbleify-linux-workstation.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleify-linux-workstation.sh && wget -O trimbleprep.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleprep.sh
-
-sh /opt/trimbleprep.sh
+wget -O trimbleify-linux-workstation.sh https://raw.githubusercontent.com/Trimble-Technologies-Team/Linux/main/trimbleify-linux-workstation.sh && wget -O trimbleprep.sh https://raw.githubusercontent.com/Trimble-ACT/Linux/main/trimbleprep.sh
 
 # Function to delete the script file
 delete_script() {
